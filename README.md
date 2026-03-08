@@ -52,7 +52,7 @@ A production-grade Weather REST API built with **ASP.NET Core 8**, featuring JWT
 | **Health Checks** | `/health` endpoint — DB connectivity |
 | **ILogger** | Logging to console |
 | **Docker** | Multi-stage Dockerfile with volume mounts |
-| **CI/CD** | GitHub Actions — build, test, security scan, Docker push, Azure deploy |
+| **CI/CD** | Build the Docker image and Push it to Docker Hub |
 
 ---
 
@@ -157,14 +157,13 @@ POST /api/v1/alerts/subscriptions
 ```
 Push to main
     ↓
-┌─────────────┐   ┌──────────────┐   ┌─────────────────┐   ┌──────────────────┐
-│ Build &     │──▶│ Security     │──▶│ Docker Build    │──▶│ Deploy to Azure  │
-│ Unit Tests  │   │ Scan         │   │ & GHCR Push     │   │ Web App          │
+┌─────────────┐   ┌──────────────┐   ┌─────────────────┐   
+│ Build &     │──▶│ Security     │──▶│ Docker Build    │
+│ Unit Tests  │   │ Scan         │   │ & GHCR Push     │   
 └─────────────┘   └──────────────┘   └─────────────────┘   └──────────────────┘
 ```
 
 Configure the following **GitHub Secrets** for full deployment:
-- `AZURE_CREDENTIALS` — Azure service principal JSON
 - `OWM_API_KEY` — OpenWeatherMap API key
 - `JWT_KEY` — 32+ char JWT signing key
 
@@ -196,4 +195,3 @@ Configure the following **GitHub Secrets** for full deployment:
 | Logging | ILogger |
 | CI/CD | GitHub Actions |
 | Container | Docker / Docker Compose |
-| Cloud | Azure Web App for Containers |
