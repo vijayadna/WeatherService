@@ -28,7 +28,7 @@ jobs:
 
       # Run tests
       - name: Test
-        run: dotnet test --no-build
+        run: dotnet test
 
       # Build Docker image
       - name: Build Docker Image
