@@ -2,7 +2,7 @@
 
 A production-grade Weather REST API built with **ASP.NET Core 8**, featuring JWT authentication, resilient external API integration, alert subscriptions, CSV export, Swagger UI, background jobs, and a full CI/CD pipeline.
 
----
+----
 
 ## 📐 Architecture Overview
 
